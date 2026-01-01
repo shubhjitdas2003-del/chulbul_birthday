@@ -230,4 +230,32 @@
             width: 90%; margin: 0 auto;
         }
 
+
         #main-content { display: none; opacity: 0; transition: opacity 1s ease-in; }
+
+       /* Music Toggle Button */
+        .music-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;      /* 🔥 very important */
+            pointer-events: auto;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 22px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+        }
+
+
+                .music-btn:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .hidden {
+            display: none;
+        }
