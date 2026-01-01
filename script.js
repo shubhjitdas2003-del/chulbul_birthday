@@ -42,10 +42,44 @@ function openLightbox(url, caption = "") {
 }
 
 /* Gift Box */
+let isMusicPlaying = false;
+let giftOpened = false;
+
 function openGift() {
+    if (giftOpened) return;   // 🔒 prevent re-trigger
+    giftOpened = true;
+
     document.querySelector('.gift-wrapper').classList.add('open');
-    setTimeout(() => {
-        document.body.style.background =
-            "linear-gradient(135deg, #f3e5f5 0%, #f8f4ff 100%)";
-    }, 500);
+
+    const music = document.getElementById('giftMusic');
+    const btn = document.getElementById('musicToggle');
+
+    music.volume = 0.6;
+    music.play().then(() => {
+        isMusicPlaying = true;
+        btn.textContent = "🔊";
+        btn.classList.remove('hidden');
+    }).catch(err => {
+        console.log("Autoplay blocked:", err);
+    });
 }
+
+/* 🔊 Toggle Music (FIXED) */
+function toggleMusic(e) {
+    e.stopPropagation();   // 🔥 MOST IMPORTANT LINE
+
+    const music = document.getElementById('giftMusic');
+    const btn = document.getElementById('musicToggle');
+
+    if (isMusicPlaying) {
+        music.pause();
+        btn.textContent = "🔇";
+    } else {
+        music.play();
+        btn.textContent = "🔊";
+    }
+
+    isMusicPlaying = !isMusicPlaying;
+}
+
+
