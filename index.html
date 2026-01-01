@@ -155,6 +155,15 @@
         </div>
 
         <div class="photo-gallery" id="gallery">
+            <!-- Background Music -->
+            <audio id="giftMusic" loop>
+                <source src="src/music/birthday.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- Music Toggle Button -->
+            <button id="musicToggle" class="music-btn hidden"onclick="toggleMusic(event)">
+                🔊
+            </button>
             <div class="polaroid glow" style="transform: rotate(-5deg) ;" onclick="openLightbox('src/imag/imag1.jpg', 'Yaadein tasveeron mein bandh jaati hain, Par unki khushboo dil tak aa jaati hai.')">
                 <img src="src/imag/imag1.jpg" alt="1">
                 <p>Memories</p>
@@ -251,6 +260,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
